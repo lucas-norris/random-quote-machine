@@ -8,7 +8,9 @@
     "snowpack": "^3.3.7"
   },
   "dependencies": {
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "http2-proxy": "^5.0.53",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "superagent": "^8.0.0"
   }
 }
