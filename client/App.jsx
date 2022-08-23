@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+//import { setInterval } from 'timers'
 
 import { getQuotes } from './apiClient'
 import Loader from './Loader'
@@ -11,22 +12,25 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setLoading(true)
-    setTimeout(() => {
-      //https://zenquotes.io/api/quotes
-      getQuotes()
-        .then((data) => {
-          console.log('data.body', data)
-          setQuoteData(data[index].q)
-          setAuthorName(data[index].a)
-          setQuoteArr(data)
-        })
-        .catch((err) => console.error(err.message))
-        .finally(() => {
-          setLoading(false)
-        })
-        .catch((err) => console.error(err.message))
-    }, 1000)
+    //const interval = setInterval(() => {
+    setLoading(true),
+      setTimeout(() => {
+        //https://zenquotes.io/api/quotes
+        getQuotes()
+          .then((data) => {
+            console.log('data.body', data)
+            setQuoteData(data[index].q)
+            setAuthorName(data[index].a)
+            setQuoteArr(data)
+          })
+          .catch((err) => console.error(err.message))
+          .finally(() => {
+            setLoading(false)
+          })
+          .catch((err) => console.error(err.message))
+      }, 1000)
+    // }, 1000 * 60 * 30)
+    //return () => clearInterval(interval)
   }, [])
 
   // function newQuote() {
@@ -51,12 +55,19 @@ function App() {
         <>
           <div id="quote-box">
             <p id="text">{quoteData}</p>
-            <p id="author">{authorName}</p>
+            <p id="author">- {authorName}</p>
             <button id="new-quote" onClick={handleClick}>
               New Quote
             </button>
-            <a id="tweet-quote" href="https://twitter.com/">
-              tweet
+            <a
+              className="button"
+              id="tweet-quote"
+              title="Tweet this quote!"
+              target="blank"
+              href="https://twitter.com"
+            >
+              <ion-icon name="logo-twitter"></ion-icon>
+              {/* <i class="fa fa-twitter">::before</i> */}
             </a>
             ;
           </div>
