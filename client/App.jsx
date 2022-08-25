@@ -85,7 +85,7 @@ function App() {
               id="tweet-quote"
               title="Tweet this quote!"
               target="blank"
-              href="https://twitter.com"
+              href="https://twitter.com/intent/tweet"
             >
               <ion-icon name="logo-twitter"></ion-icon>
               {/* <i class="fa fa-twitter">::before</i> */}

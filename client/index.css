@@ -9,13 +9,13 @@ body {
   font-family: sans-serif;
   background: royalblue;
   display: flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
   height: 100vw;
+  vertical-align: baseline;
 }
 
 #quote-box {
-  width: 300px;
   border-radius: 3px;
   background-color: cornsilk;
   position: relative;
@@ -31,6 +31,18 @@ body {
   text-align: center;
   vertical-align: baseline;
   
+}
+
+#text::before {
+  content: open-quote;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#text::after {
+  content: close-quote;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 #author {
