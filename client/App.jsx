@@ -33,6 +33,28 @@ function App() {
     //return () => clearInterval(interval)
   }, [])
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLoading(true),
+        setTimeout(() => {
+          //https://zenquotes.io/api/quotes
+          getQuotes()
+            .then((data) => {
+              console.log('data.body', data)
+              setQuoteData(data[index].q)
+              setAuthorName(data[index].a)
+              setQuoteArr(data)
+            })
+            .catch((err) => console.error(err.message))
+            .finally(() => {
+              setLoading(false)
+            })
+            .catch((err) => console.error(err.message))
+        }, 1000)
+    }, 1000 * 60 * 30)
+    return () => clearInterval(interval)
+  }, [])
+
   // function newQuote() {
   //   let myIndex = 1
   //   setQuoteData(quoteData[myIndex++ % data.length])
@@ -48,7 +70,6 @@ function App() {
   return (
     <>
       <h2>Inspirational Quotes</h2>
-      <h3>Get Inspired!</h3>
       {loading ? (
         <Loader />
       ) : (
@@ -69,12 +90,13 @@ function App() {
               <ion-icon name="logo-twitter"></ion-icon>
               {/* <i class="fa fa-twitter">::before</i> */}
             </a>
-            ;
           </div>
-          Inspirational quotes provided
-          <a href="https://zenquotes.io/" target="_blank">
-            ZenQuotes API
-          </a>
+          <footer>
+            Inspirational quotes provided by -
+            <a href="https://zenquotes.io/" target="_blank">
+              ZenQuotes API
+            </a>
+          </footer>
         </>
       )}
     </>
