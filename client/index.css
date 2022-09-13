@@ -1,0 +1,112 @@
+/* Add CSS styles here! */
+
+h2 {
+  text-align: center;
+  color:#fff
+}
+
+body {
+  font-family: sans-serif;
+  background: royalblue;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  height: 100vw;
+  vertical-align: baseline;
+}
+
+#quote-box {
+  border-radius: 3px;
+  background-color: cornsilk;
+  position: relative;
+  width: 450px;
+  padding: 40px 50px;
+  display: table;
+}
+
+#text {
+  color: royalblue;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: large;
+  text-align: center;
+  vertical-align: baseline;
+  
+}
+
+#text::before {
+  content: open-quote;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#text::after {
+  content: close-quote;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#author {
+  color: royalblue;
+  font-size: 1em;
+  text-align: right;
+  padding-top: 20px;
+
+
+}
+
+#tweet-quote {
+  background-color: royalblue;
+  color:#fff;
+  float: left;
+  padding-top: 8px;
+  text-align: center;
+  font-size: 1.2em;
+  margin-right: 5px;
+  margin-top: 30px;
+  height: 30px;
+  width: 40px
+}
+
+button {
+  background-color: royalblue;
+  float:right;
+  margin-top: 30px;
+  height: 38px;
+  font-size: .85em;
+  padding: 8 18 6 18;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  color:#fff
+}
+
+footer {
+  text-align: center;
+  color: #fff;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
